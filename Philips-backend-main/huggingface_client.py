@@ -18,9 +18,9 @@ if hf_home:
 MODEL_NAME = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
 LABELS = ["negative", "neutral", "positive"]
 
-# Load tokenizer & model once at import time
+# Load tokenizer & model once at import time.
 try:
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
     model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
     model.eval()
     logger.info(f"Loaded sentiment model `{MODEL_NAME}` successfully")

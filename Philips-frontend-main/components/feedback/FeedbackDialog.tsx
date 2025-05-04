@@ -77,13 +77,15 @@ export function FeedbackDialog({
 
   const handleSubmit = async () => {
     setSubmitting(true);
-    const userResponse = Object.values(answers).join("\n");
+    // Build an array of responses ordered by the questions array
+    const userResponses = questions.map(q => answers[q.id] || "");
 
     try {
       const res = await fetch("/api/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pageContext, userResponse }),
+        // Send the responses as a JSON array along with the questions
+        body: JSON.stringify({ pageContext, userResponse: userResponses, questions: questions.map(q => q.text) }),
       });
       if (!res.ok) {
         const text = await res.text();
