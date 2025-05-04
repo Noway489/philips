@@ -16,10 +16,13 @@ export default function Sidebar() {
       <h2 className="text-2xl font-bold mb-8">Admin</h2>
       <nav className="flex flex-col space-y-4">
         {links.map((link) => (
-          <Link key={link.href} href={link.href}>
-            <a className="text-gray-700 hover:text-gray-900">
-              {link.label}
-            </a>
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-gray-700 hover:text-gray-900">
+
+            {link.label}
+
           </Link>
         ))}
       </nav>
