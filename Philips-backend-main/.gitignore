@@ -76,3 +76,8 @@ Thumbs.db
 
 # Docker
 docker-compose.override.yml
+
+#migration files
+*.db
+*.sqlite3
+migrations/
