@@ -2,6 +2,7 @@
 venv/
 env/
 ENV/
+migrations/
 
 # Python bytecode
 __pycache__/
@@ -80,4 +81,3 @@ docker-compose.override.yml
 #migration files
 *.db
 *.sqlite3
-migrations/
