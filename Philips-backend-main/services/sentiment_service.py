@@ -6,7 +6,7 @@
 import logging
 from huggingface_client import analyze_sentiment
 from models import Feedback
-
+from extensions import db
 logger = logging.getLogger("philips")
 
 def process_feedback(page_context: str, user_response: str):
@@ -24,7 +24,7 @@ def process_feedback(page_context: str, user_response: str):
     label, score = analyze_sentiment(user_response)
 
     # 2) Save to Postgres (deferred import to break circular dependency)
-    from app import db
+    # from app import db
 
     try:
         fb = Feedback(

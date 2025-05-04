@@ -37,9 +37,9 @@ def feedback():
     new_feedback = Feedback(
          page_context=page_context,
          user_response=user_responses,
-         sentiment=label,
-         score=score,
-         questions=questions
+         sentiment_label=label,
+         sentiment_score=score
+        #  questions=questions
     )
     db.session.add(new_feedback)
     db.session.commit()

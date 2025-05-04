@@ -4,7 +4,8 @@ import logging
 from flask import Flask
 from flask_cors import CORS
 from extensions import db 
-
+from flask_migrate import Migrate
+from models import *
 from config import Config
 from utils.logger import setup_logger
 
@@ -44,6 +45,7 @@ logger.info("Starting Philips Smart Feedback Backend...")
 
 # 2) Create Flask app and ensure DB tables exist
 app = create_app()
+migrate = Migrate(app, db)
 with app.app_context():
     # Import models so SQLAlchemy knows about them
     from models import Feedback
