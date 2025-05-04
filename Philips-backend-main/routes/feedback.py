@@ -22,7 +22,8 @@ def feedback():
     data = request.get_json() or {}
     page_context = data.get('pageContext') or data.get('page_context')
     user_responses = data.get("userResponse")
-    questions = data.get("questions", [])
+    questions_array = data.get("questions", [])
+    print(f"Received feedback: {data}")
 
     # Validate that we received a list of responses
     if not user_responses or not isinstance(user_responses, list):
@@ -37,9 +38,9 @@ def feedback():
     new_feedback = Feedback(
          page_context=page_context,
          user_response=user_responses,
+         questions=questions_array,
          sentiment_label=label,
-         sentiment_score=score
-        #  questions=questions
+         sentiment_score=score,
     )
     db.session.add(new_feedback)
     db.session.commit()

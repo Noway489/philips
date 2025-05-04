@@ -1,5 +1,4 @@
 # huggingface_client.py
-
 import os
 import logging
 import numpy as np
@@ -62,3 +61,5 @@ def analyze_sentiment(text: str):
         logger.error(f"Error during sentiment analysis: {err}")
         # Fallback in case of error
         return "error", 0.0
+
+# %%
