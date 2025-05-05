@@ -1,27 +1,36 @@
+// app/page.tsx
 "use client";
 
-import { useState } from "react";
+import Header from "@/components/common/Header";
+import Hero from "@/components/common/Hero";
+import Features from "@/components/common/Features";
+import Newsletter from "@/components/common/Newsletter";
+import Footer from "@/components/common/Footer";
 import { FeedbackButton } from "@/components/feedback/FeedbackButton";
 import { FeedbackDialog } from "@/components/feedback/FeedbackDialog";
+import { useState } from "react";
 
 export default function Home() {
-  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Welcome to Our Platform</h1>
-        <p className="text-lg text-muted-foreground">
-          This is a demo page showcasing our Smart Feedback Collector. Click the feedback button in the bottom right to try it out!
-        </p>
-      </div>
+    <>
+      <Header />
 
-      <FeedbackButton onClick={() => setFeedbackOpen(true)} />
+      <main className="pt-20"> {/* top padding to offset fixed header */}
+        <Hero />
+        <Features />
+        <Newsletter />
+      </main>
+
+      <Footer />
+
+      <FeedbackButton onClick={() => setOpen(true)} />
       <FeedbackDialog
-        open={feedbackOpen}
-        onOpenChange={setFeedbackOpen}
-        pageContext="User visited the homepage and is interested in providing feedback."
+        open={open}
+        onOpenChange={setOpen}
+        pageContext="User visited the homepage"
       />
-    </main>
+    </>
   );
 }
