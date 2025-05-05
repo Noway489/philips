@@ -6,7 +6,7 @@ import React from "react";
 export default function AboutHero() {
   return (
     <section
-      className="h-96 bg-cover bg-center flex items-center"
+      className="h-96 bg-cover bg-center flex items-center bg-[#005EB8]"
       style={{ backgroundImage: "url('/about-hero.jpg')" }}
     >
       <div className="max-w-4xl mx-auto text-center text-white px-4">
