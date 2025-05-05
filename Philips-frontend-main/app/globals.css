@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --philips-blue: #005eb8;
+  --philips-light-blue: #cce5ff
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,4 +81,7 @@
   body {
     @apply bg-white text-foreground;
   }
+
 }
+.text-philips-blue { color: var(--philips-blue); }
+.bg-philips-light-blue { background-color: var(--philips-light-blue); }
