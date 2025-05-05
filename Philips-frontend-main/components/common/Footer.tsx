@@ -22,9 +22,6 @@ export default function Footer() {
           </div>
         ))}
       </div>
-      <div className="text-center mt-8 text-sm">
-        © Koninklijke Philips N.V., 2025. All rights reserved.
-      </div>
     </footer>
   );
 }

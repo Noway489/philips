@@ -151,7 +151,7 @@ export default function SentimentChart({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 h-80">
+    <div className="bg-white rounded-lg shadow-md p-10 max-h-96">
       <h2
         className="text-xl font-semibold mb-4"
         style={{ color: PHILIPS_BLUE }}

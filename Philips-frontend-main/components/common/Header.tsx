@@ -10,13 +10,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         <Link href="/">
           {/* Replace '/logo.svg' with your Philips logo asset */}
-          <Image src="/logo-philips.svg" alt="Philips" width={120} height={24} />
+          <h1 className="text-2xl font-extrabold text-[#005EB8]">PHILIPS</h1>
         </Link>
         <nav className="space-x-6 text-gray-700">
-          {["Products", "Support", "About", "E-Store"].map((item) => (
+          {["Products", "Support", "About"].map((item) => (
             <Link
               key={item}
-              href="#"
+              href={`/${item.toLowerCase()}`}
               className="hover:text-blue-700 transition"
             >
               {item}

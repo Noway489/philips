@@ -1,6 +1,10 @@
-// app/products/page.tsx
-import React from "react";
+"use client";
+
+import { useState } from "react";
 import ProductCard, { Product } from "@/components/common/ProductCard";
+import { FeedbackButton } from "@/components/feedback/FeedbackButton";
+import { FeedbackDialog } from "@/components/feedback/FeedbackDialog";
+import Headers from "@/components/common/Header";
 
 const products: Product[] = [
   {
@@ -48,22 +52,27 @@ const products: Product[] = [
   {
     id: 7,
     name: "Digital Steam Iron",
-    image: "https://via.placeholder.com/300x200?text=Steam+Iron",
+    image: "./assets/product_placeholder.jpeg",
     price: "₹1,799",
     description: "Ceramic soleplate with precision tip and anti-drip technology.",
   },
   {
     id: 8,
     name: "PerformancePlus Toaster",
-    image: "https://via.placeholder.com/300x200?text=Toaster",
+    image: "",
     price: "₹1,499",
     description: "4-slot toaster with browning control and defrost function.",
   },
 ];
 
 export default function ProductsPage() {
+  const [open, setOpen] = useState(false);
+  const pageContext = "User visited the Domestic Appliances products page. They browsed a variety of Philips appliances such as air fryers, kettles, mixer grinders, garment steamers, air purifiers, hand blenders, irons, and toasters etc. The user is expected to provide feedback on product details, images, pricing, and overall shopping experience.";
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <>
+    <Headers />
+    <div className="max-w-7xl mt-10 mx-auto px-4 py-16">
       <h1 className="text-3xl font-semibold text-philips-blue mb-8">
         Domestic Appliances
       </h1>
@@ -72,6 +81,15 @@ export default function ProductsPage() {
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
+      <div className="mt-8 text-center">
+        <FeedbackButton onClick={() => setOpen(true)} />
+        <FeedbackDialog
+        open={open}
+        onOpenChange={setOpen}
+        pageContext={pageContext}
+      />
+      </div>
     </div>
+    </>
   );
 }

@@ -1,10 +1,13 @@
 // app/support/page.tsx
-import React from "react";
+"use client";
+import { useState } from "react";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import SupportHero from "@/components/support/SupportHero";
 import SupportCategoryCard, { Category } from "@/components/support/SupportCategoryCard";
 import SupportContact from "@/components/support/SupportContact";
+import { FeedbackButton } from "@/components/feedback/FeedbackButton";
+import { FeedbackDialog } from "@/components/feedback/FeedbackDialog";
 
 const categories: Category[] = [
   {
@@ -30,6 +33,7 @@ const categories: Category[] = [
 ];
 
 export default function SupportPage() {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Header />
@@ -46,9 +50,13 @@ export default function SupportPage() {
           ))}
         </div>
       </section>
-
+      <FeedbackButton onClick={() => setOpen(true)} />
+      <FeedbackDialog
+        open={open}
+        onOpenChange={setOpen}
+        pageContext={"User visited the Support page. They are looking for help with product FAQs, manuals, software updates, and repair services."}
+      />
       <SupportContact />
-
       <Footer />
     </>
   );

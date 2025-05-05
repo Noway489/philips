@@ -2,6 +2,8 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import PlaceholderImage from "@/assets/product_placeholder.jpeg";
 
 export interface Product {
   id: number;
@@ -19,9 +21,11 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
       <div className="aspect-[4/3] w-full mb-4 overflow-hidden rounded">
-        <img
-          src={product.image}
+        <Image
+          src={PlaceholderImage}
           alt={product.name}
+          width={400}
+          height={300}
           className="object-cover w-full h-full"
         />
       </div>

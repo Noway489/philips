@@ -14,7 +14,7 @@ export default function SupportHero() {
 
   return (
     <section
-      className="bg-[#005EB8] text-white py-16 px-4"
+      className="bg-[#005EB8] mt-10 text-white py-16 px-4"
       aria-label="Support Search"
     >
       <div className="max-w-3xl mx-auto text-center">
