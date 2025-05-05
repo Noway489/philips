@@ -13,6 +13,7 @@ from utils.logger import setup_logger
 from routes.feedback import feedback_bp
 from routes.questions import questions_bp
 from routes.health    import health_bp
+from routes.stats import stats_bp
 # Initialize extensions
 # db = SQLAlchemy()
 
@@ -34,6 +35,7 @@ def create_app():
     app.register_blueprint(feedback_bp,  url_prefix="/api")
     app.register_blueprint(questions_bp, url_prefix="/api")
     app.register_blueprint(health_bp,    url_prefix="/api")
+    app.register_blueprint(stats_bp, url_prefix='/api')
     return app
 
 # --- Startup sequence ---

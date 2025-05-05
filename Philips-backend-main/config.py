@@ -12,7 +12,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Flask environment: "development" or "production"
-    ENV = os.getenv("FLASK_ENV", "production")
+    ENV = os.getenv("FLASK_ENV", "development")
 
     # Secret key for session signing, CSRF protection, etc.
     SECRET_KEY = os.getenv("SECRET_KEY", "change-me-in-production")
