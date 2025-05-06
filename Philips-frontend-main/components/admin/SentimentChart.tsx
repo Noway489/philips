@@ -61,6 +61,7 @@ export default function SentimentChart({
             PHILIPS_GREY,
           ];
         } else {
+          console.log(data);
           data.datasets[0].borderColor = PHILIPS_BLUE;
           data.datasets[0].backgroundColor = PHILIPS_LIGHT_BLUE;
           data.datasets[0].fill = true;

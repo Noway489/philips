@@ -132,7 +132,7 @@ export function FeedbackDialog({
 
         {questions.length === 0 ? (
           <p className="text-center text-muted-foreground py-6">
-            Generating questions...
+            intializing Form...
           </p>
         ) : (
           <div className="space-y-6">
